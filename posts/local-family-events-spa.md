@@ -3,6 +3,6 @@ title: Concept of rewriting SSR .Net website into SPA using ReactJS and Redux
 date: '2022-01-10'
 ---
 
-I've been supporting my wife's business by keeping her events business (Local Family Events)[https://localfamily.events] up and running.  I was avoiding using ReactJS due to insufficient SEO behaviour.  I did breifly try to pull data from the existing site to an (SPA-prototype)[https://vercel.com/planethurley/lfe/6mozRfyiUy3oTd7pUMQV26uAyZKd] using React just to see what I could do.
+I've been supporting my wife's business by keeping her [Asp.net core website](https://localfamily.events) up and running.  I was avoiding using ReactJS due to insufficient SEO behaviour.  I did breifly try to pull data from the existing site to an [SPA-prototype](https://vercel.com/planethurley/lfe/6mozRfyiUy3oTd7pUMQV26uAyZKd) using React just to see what I could do and it all would work well, but I stopped very quickly when I realised the SEO capabilities in React was limited.
 
-About a year ago I learned of (NextJS)[https://nextjs.org/] by (Vercel)[https://vercel.com/].  Recently I've started learning this framework through it's simple and clear tutorials and can see it appears to have enough SEO support now, so I will be trying this very soon.
+About a year ago I heard about [NextJS](https://nextjs.org/) by [Vercel](https://vercel.com/).  So a few weeks ago I finally had some time to start learning this React *Framework* by using their simple and clear tutorials and I quickly saw it has plenty of SEO support!  So I will be trying to port the ASP.Net Core site to NextJS as I much prefer the speed of frontend development and the fantastic hosting tooling and capabilities of [Vercel](https://vercel.com/).
