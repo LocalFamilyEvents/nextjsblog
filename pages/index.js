@@ -20,7 +20,7 @@ export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
-        <title>PlanetHurley.com - Home of Simon Hurley</title>
+        <title>PlanetHurley.com - Simon Hurley</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
