@@ -8,6 +8,7 @@ import Date from "../../components/dates";
 import Layout from "../../components/layout";
 
 import utilStyles from "../../styles/utils.module.css";
+import PostSchema from "../../components/structured-data/post";
 
 export default function Post({ postData }) {
   return (
@@ -22,6 +23,7 @@ export default function Post({ postData }) {
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
+      <PostSchema post={postData} />
     </Layout>
   );
 }
