@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 
 import Layout from "../components/layout";
 import Date from "../components/dates";
@@ -18,9 +19,9 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
-      {/* Keep the existing code here */}
-
-      {/* Add this <section> tag below the existing <section> tag */}
+      <Head>
+        <title>PlanetHurley.com - Home of Simon Hurley</title>
+      </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
