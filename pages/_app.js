@@ -5,7 +5,7 @@ import * as ga from '../lib/ga'
 
 import '../styles/global.css'
 
-export default function App({ Component, pageProps}) {
+const App = ({ Component, pageProps}) => {
     
     const router = useRouter()
 
@@ -25,3 +25,4 @@ export default function App({ Component, pageProps}) {
     
     return <Component {...pageProps} />
 }
+export default App;
