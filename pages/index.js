@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
 
   const query = gql`
     query {
-      blogs {
+      posts {
         id
         title
         slug
@@ -40,7 +40,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      blogs: data.blogs
+      posts: data.posts
     }
   }
 };
@@ -54,20 +54,20 @@ export const getStaticProps = async () => {
 //   };
 // }
 
-const Home = ({ blogs }) => {
+const Home = ({ posts }) => {
   return (
     <Layout home>
       <Head>
         <title>PlanetHurley.com - Simon Hurley</title>
       </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}>Post</h2>
         <ul className={utilStyles.list}>
-          {blogs.map(({ id, date, title, slug, thumbnail }) => {
+          {posts.map(({ id, date, title, slug, thumbnail }) => {
             const { url: imageUrl, width, height } = thumbnail[0]
             return (
               <li className={utilStyles.listItem} key={id}>
-                <Link href={`/blogs/${slug}`}>
+                <Link href={`/posts/${slug}`}>
                   <a>{title}</a>
                 </Link>
                 <br />
