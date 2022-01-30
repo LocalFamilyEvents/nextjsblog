@@ -9,22 +9,6 @@ import Layout from "../../components/layout";
 import utilStyles from "../../styles/utils.module.css";
 import PostSchema from "../../components/structured-data/post";
 
-// export async function getStaticPaths() {
-//   const paths = getAllPostIds();
-//   return {
-//     paths, fallback: false,
-//   };
-// }
-
-// export async function getStaticProps({ params }) {
-//   const postData = await getPostData(params.id);
-//   return {
-//     props: {
-//       postData,
-//     },
-//   };
-// }
-
 export const getServerSideProps = async (pageContext) => {
   const { GRAPH_CMS_CONTENT_API: url, GRAPH_CMS_AUTH_TOKEN: token } =
     process.env;
