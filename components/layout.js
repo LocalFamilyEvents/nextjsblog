@@ -1,4 +1,7 @@
 import Head from "next/head";
+
+import Container from "react-bootstrap/Container"
+
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
@@ -50,7 +53,11 @@ export default function Layout({ children, home }) {
           </>
         )}
       </header>
-      <main>{children}</main>
+      <main>
+        <Container>
+          {children}
+        </Container>
+      </main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">

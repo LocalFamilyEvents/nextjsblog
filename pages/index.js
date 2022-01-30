@@ -2,7 +2,10 @@ import { gql, GraphQLClient } from "graphql-request";
 
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
+import Row from "react-bootstrap/Row"
+import matter from "gray-matter";
 
 import Layout from "../components/layout"
 import Date from "../components/dates"
@@ -60,26 +63,23 @@ const Home = ({ posts }) => {
       <Head>
         <title>PlanetHurley.com - Simon Hurley</title>
       </Head>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Post</h2>
-        <ul className={utilStyles.list}>
-          {posts.map(({ id, date, title, slug, thumbnail }) => {
-            const { url: imageUrl, width, height } = thumbnail[0]
+        <Row>
+          {posts.map(({ date, title, excerpt, slug, thumbnail }) => {
+            const { url: imageUrl } = thumbnail[0]
             return (
-              <li className={utilStyles.listItem} key={id}>
-                <Link href={`/posts/${slug}`}>
-                  <a>{title}</a>
-                </Link>
-                <br />
-                <small className={utilStyles.lightText}>
-                  <Date dateString={date} />
-                </small>
-                <Image src={imageUrl} width={width} height={height} />
-              </li>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={imageUrl} />
+                <Card.Body>
+                  <Card.Title>{title} - <Date dateString={date} /></Card.Title>
+                  <Card.Text>{excerpt}</Card.Text>
+                  <Link href={`/posts/${slug}`}>
+                    <Button variant="primary">Read</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
             )
           })}
-        </ul>
-      </section>
+        </Row>
     </Layout>
   );
 };
