@@ -11,6 +11,7 @@
     "graphql": "^16.2.0",
     "graphql-request": "^3.7.0",
     "gray-matter": "^4.0.3",
+    "marked": "^4.0.12",
     "next": "latest",
     "react": "17.0.2",
     "react-bootstrap": "^2.1.1",

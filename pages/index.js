@@ -67,7 +67,7 @@ const Home = ({ posts }) => {
           {posts.map(({ date, title, excerpt, slug, thumbnail }) => {
             const { url: imageUrl } = thumbnail[0]
             return (
-              <Card style={{ width: '18rem' }}>
+              <Card key={date} style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={imageUrl} />
                 <Card.Body>
                   <Card.Title>{title} - <Date dateString={date} /></Card.Title>

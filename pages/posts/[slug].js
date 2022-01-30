@@ -1,7 +1,7 @@
-import { remark } from "remark";
-import html from "remark-html";
 import Head from "next/head";
 import { gql, GraphQLClient } from "graphql-request";
+
+import { marked } from "marked";
 
 import Date from "../../components/dates";
 import Layout from "../../components/layout";
@@ -42,10 +42,10 @@ export const getServerSideProps = async (pageContext) => {
   };
 
   const data = await graphQLClient.request(query, variables);
-
+  
   return {
     props: {
-      post: data.post,
+      post: data.post
     },
   };
 };
