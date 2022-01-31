@@ -59,7 +59,7 @@ export default function Layout({ children, home }) {
         </Container>
       </main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div classNames='text-center'>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
