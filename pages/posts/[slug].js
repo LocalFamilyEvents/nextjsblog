@@ -1,8 +1,6 @@
 import Head from "next/head";
 import { gql, GraphQLClient } from "graphql-request";
 
-import { marked } from "marked";
-
 import Date from "../../components/dates";
 import Layout from "../../components/layout";
 
