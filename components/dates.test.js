@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 
-import Date from "./dates";
+import Date from "./date";
 
 
 test("render correctly", () => {

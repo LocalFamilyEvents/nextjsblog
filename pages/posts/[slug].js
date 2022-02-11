@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import Head from "next/head";
 import { gql, GraphQLClient } from "graphql-request";
 
-import Date from "../../components/dates";
+import Date from "../../components/date";
 import Layout from "../../components/layout";
 
 import utilStyles from "../../styles/utils.module.css";

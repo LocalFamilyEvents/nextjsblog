@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Link from "next/link";
 import classnames from 'classnames';
 
+import Date from './date';
 import { ThemeContext } from "./themeContext";
 
 import styles from './postTile.module.css';
@@ -23,7 +24,7 @@ const PostTile = ({ date, slug, imageUrl, title, excerpt }) => {
             ({themeContext.theme.id}) {title} - <Date dateString={date} />
           </Card.Title>
           <Card.Text className={styles.cardText}>{excerpt}</Card.Text>
-          <Link href={`/posts/${slug}`}>
+          <Link href={`/posts/${slug}`} passHref>
             <Button variant="primary">Read</Button>
           </Link>
         </Card.Body>

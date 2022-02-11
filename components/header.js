@@ -1,5 +1,6 @@
 import ThemeChanger from "./themeChanger";
-
+import Link from "next/link";
+import Image from "next/image";
 import utilStyles from "../styles/utils.module.css";
 import styles from './header.module.css'
 
@@ -8,7 +9,12 @@ const Header = ({ home }) => {
 
   return (
     <header className={styles.header}>
-      <img src="/images/logo.svg" width={600} height={100} />
+      <Image 
+        src="/images/logo.svg" 
+        alt="planethurley.com logo"
+        width={600} 
+        height={100}
+      />
       <ThemeChanger />
       {home ? (
         <>
