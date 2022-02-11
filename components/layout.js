@@ -44,8 +44,8 @@ export default function Layout({ children, home }) {
         </Container>
       </main>
       {!home && (
-        <div classNames={styles.backToHome}>
-          <Link href="/">
+        <div className={styles.backToHome}>
+          <Link href="/" passHref>
             <a>← Back to home</a>
           </Link>
         </div>

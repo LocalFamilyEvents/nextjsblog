@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import classNames from "classnames";
+import classnames from "classnames";
 
 import { ThemeContext, themes } from "./themeContext";
 
@@ -10,11 +10,11 @@ import styles from "./themeChanger.module.css";
 const ThemeChanger = () => {
   const themeContext = useContext(ThemeContext);
 
-  const darkClassNames = classNames(styles.area, {
+  const darkClassNames = classnames(styles.area, {
     [styles.active]: themeContext.theme.id === themes.dark.id,
   });
 
-  const lightClassNames = classNames(styles.area, {
+  const lightClassNames = classnames(styles.area, {
     [styles.active]: themeContext.theme.id === themes.light.id,
   });
 
