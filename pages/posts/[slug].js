@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import Head from "next/head";
 import { gql, GraphQLClient } from "graphql-request";
 
@@ -6,6 +7,7 @@ import Layout from "../../components/layout";
 
 import utilStyles from "../../styles/utils.module.css";
 import PostSchema from "../../components/structured-data/post";
+import { UserContext } from '../../components/userContext';
 
 export const getServerSideProps = async (pageContext) => {
   const { GRAPH_CMS_CONTENT_API: url, GRAPH_CMS_AUTH_TOKEN: token } =
@@ -50,6 +52,8 @@ export const getServerSideProps = async (pageContext) => {
 
 
 export default function Post({ post }) {
+  const userContext = useContext(UserContext);
+
   return (
     <Layout>
       <Head>
@@ -63,6 +67,7 @@ export default function Post({ post }) {
           <Date dateString={post.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.description }} />
+        <p>Did you like this article? {userContext.firstName}</p>
       </article>
       <PostSchema post={post} />
     </Layout>

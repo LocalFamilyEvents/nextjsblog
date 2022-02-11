@@ -1,29 +1,47 @@
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import * as ga from '../lib/ga'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
-import '../styles/global.css'
+import { ThemeContext, themes } from "../components/themeContext";
+import { UserContext } from "../components/userContext";
+import * as ga from "../lib/ga";
 
-const App = ({ Component, pageProps}) => {
-    
-    const router = useRouter()
+import "bootstrap/dist/css/bootstrap.min.css";
 
-    useEffect(() => {
-        const handleRouterChange = (url) => {
-            ga.pageview(url)
-        }
+import "../styles/global.css";
 
-        router.events.on('routeChangeComplete', handleRouterChange)
+library.add(fab, faCheckSquare, faCoffee, faMoon, faSun)
 
-        return () => {
-            router.events.off('routeChangeComplete', handleRouterChange)
-        }
+const App = ({ Component, pageProps }) => {
+  const router = useRouter();
 
-    }, [router.events])
+  useEffect(() => {
+    const handleRouterChange = (url) => {
+      ga.pageview(url);
+    };
 
-    
-    return <Component {...pageProps} />
-}
+    router.events.on("routeChangeComplete", handleRouterChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouterChange);
+    };
+  }, [router.events]);
+
+  const [theme, setState] = useState({ theme: themes.light });
+
+  const setTheme = (action) => {
+    setState({ ...theme, theme: action });
+  };
+
+  return (
+    <UserContext.Provider value={{ firstName: "Simon" }}>
+      <ThemeContext.Provider value={{...theme, setTheme}}>
+        <Component {...pageProps} />
+      </ThemeContext.Provider>
+    </UserContext.Provider>
+  );
+};
 export default App;

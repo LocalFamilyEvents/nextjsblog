@@ -1,0 +1,17 @@
+.container {
+    width: 4em;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.area {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.area.active {
+    background: #ccc;
+}

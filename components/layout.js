@@ -1,17 +1,22 @@
 import Head from "next/head";
+import { useContext } from "react";
 
 import Container from "react-bootstrap/Container"
 
+import Header from './header'
 import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
-import Link from "next/link";
 
-const name = "Simon Hurley";
+import Link from "next/link";
+import { ThemeContext } from "./themeContext";
+
 export const siteTitle = "Planet Hurley";
 
 export default function Layout({ children, home }) {
+  const themeContext = useContext(ThemeContext);
+  const { background } = themeContext.theme;
+
   return (
-    <div className={styles.container}>
+    <div classNames={styles.container} style={{ backgroundColor: background}}>
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -32,34 +37,14 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        <img src="/images/logo.svg" width={600} height={100} />
-        {home ? (
-          <>
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                Home
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
+      <Header home={home} />
       <main>
         <Container>
           {children}
         </Container>
       </main>
       {!home && (
-        <div classNames='text-center'>
+        <div classNames={styles.backToHome}>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
