@@ -1,20 +1,19 @@
 import { gql, GraphQLClient } from "graphql-request";
 
 import Head from "next/head";
-import Row from "react-bootstrap/Row"
-
-import Layout from "../components/layout"
-import PostTile from "../components/postTile"
+import Row from "react-bootstrap/Row";
+import Layout from "../components/layout";
+import PostTile from "../components/postTile";
 
 export const getStaticProps = async () => {
-  const { GRAPH_CMS_CONTENT_API : url, GRAPH_CMS_AUTH_TOKEN : token } = process.env
+  const { GRAPH_CMS_CONTENT_API: url, GRAPH_CMS_AUTH_TOKEN: token } =
+    process.env;
 
   const graphQLClient = new GraphQLClient(url, {
     headers: {
-      Authorization:
-        "Bearer " + token,
+      Authorization: "Bearer " + token,
     },
-  })
+  });
 
   const query = gql`
     query {
@@ -24,23 +23,23 @@ export const getStaticProps = async () => {
         slug
         excerpt
         date
-        tags,
+        tags
         thumbnail {
-          url,
-          width,
-          height,
+          url
+          width
+          height
         }
       }
     }
   `;
 
-  const data = await graphQLClient.request(query)
+  const data = await graphQLClient.request(query);
 
   return {
     props: {
-      posts: data.posts
-    }
-  }
+      posts: data.posts,
+    },
+  };
 };
 
 // export async function getStaticProps() {
@@ -58,13 +57,13 @@ const Home = ({ posts }) => {
       <Head>
         <title>PlanetHurley.com - Simon Hurley</title>
       </Head>
-        <Row>
-          {posts.map((post) => {
-            const imageUrl = post.thumbnail[0].url;
+      <Row>
+        {posts.map((post) => {
+          const imageUrl = post.thumbnail[0].url;
 
-            return <PostTile key={post.id} {...post} imageUrl={imageUrl} />
-          })}
-        </Row>
+          return <PostTile key={post.id} {...post} imageUrl={imageUrl} />;
+        })}
+      </Row>
     </Layout>
   );
 };
