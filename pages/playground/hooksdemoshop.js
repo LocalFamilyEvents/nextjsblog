@@ -51,7 +51,7 @@ const UseEffect = () => {
 
     useEffect(() => {
         document.title = `Welcome to the shop (${cartItems.length}, ${totalCartItems})`;
-    }, [cartItems]);
+    }, [cartItems, totalCartItems]);
 
     return (
         <Layout>
