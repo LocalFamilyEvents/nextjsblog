@@ -32,6 +32,7 @@ const Header = ({ home }) => {
           </h2>
         </>
       )}
+      Playgrounds: <Link href="/playground/hooksdemoshop"><a>React Hooks Shop</a></Link>
     </header>
   );
 };
