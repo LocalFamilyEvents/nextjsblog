@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState, StrictMode } from "react";
 import Layout from "../../components/layout";
-import ProductList from "./product-list";
-import Cart from "./cart";
+import ProductList from "../../components/hookdemoshop/product-list";
+import Cart from "../../components/hookdemoshop/cart";
 
 import styles from './hooksdemoshop.module.css';
 
