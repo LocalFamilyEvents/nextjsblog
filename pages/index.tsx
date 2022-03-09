@@ -8,6 +8,9 @@ import PostTile from "../components/postTile";
 export const getStaticProps = async () => {
   const { GRAPH_CMS_CONTENT_API: url, GRAPH_CMS_AUTH_TOKEN: token } =
     process.env;
+  if (!url) {
+    throw Error("Missing {GRAPH_CMS_CONTENT_API} environment variable");
+  }
 
   const graphQLClient = new GraphQLClient(url, {
     headers: {
@@ -51,14 +54,18 @@ export const getStaticProps = async () => {
 //   };
 // }
 
-const Home = ({ posts }) => {
+interface HomeProps {
+  posts: Post[];
+}
+
+const Home = ({ posts } : HomeProps) => {
   return (
     <Layout home>
       <Head>
         <title>PlanetHurley.com - Simon Hurley</title>
       </Head>
       <Row>
-        {posts.map((post) => {
+        {posts.map((post: Post) => {
           const imageUrl = post.thumbnail[0].url;
 
           return <PostTile key={post.id} {...post} imageUrl={imageUrl} />;

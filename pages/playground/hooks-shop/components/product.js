@@ -1,13 +1,16 @@
-const Product = ({ product, addToCart }) => {
+import { useContext } from "react";
+
+import ShopContext from "../shop-context";
+
+const Product = ({ product }) => {
+  const { actions } = useContext(ShopContext);
+
   const { sku, title, price } = product;
 
   function handleAddToCart() {
-    addToCart({
-      type: "addToCart",
-      payload: {
-        ...product,
-        quantity: 1,
-      },
+    actions.addProductToCart({
+      ...product,
+      quantity: 1,
     });
   }
 

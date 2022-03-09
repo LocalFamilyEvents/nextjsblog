@@ -5,16 +5,16 @@ import utilStyles from "../styles/utils.module.css";
 import styles from './header.module.css'
 
 const Header = ({ home }) => {
-  const name = "Simon Hurley";
+  const name = "";//"Simon Hurley";
 
   return (
     <header className={styles.header}>
-      <Image 
+      {/* <Image 
         src="/images/logo.svg" 
         alt="planethurley.com logo"
         width={600} 
         height={100}
-      />
+      /> */}
       <ThemeChanger />
       {home ? (
         <>
@@ -32,7 +32,7 @@ const Header = ({ home }) => {
           </h2>
         </>
       )}
-      Playgrounds: <Link href="/playground/hooksdemoshop"><a>React Hooks Shop</a></Link>
+      Playgrounds: <Link href="/playground/hooks-shop"><a>React Hooks Shop</a></Link>
     </header>
   );
 };
