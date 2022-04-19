@@ -1,4 +1,4 @@
 interface Order {
     placed: Date;
-    items: Array<CartItem>;
+    items: Array<OrderableItem>;
 }

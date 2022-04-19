@@ -9,12 +9,12 @@ const Header = ({ home }) => {
 
   return (
     <header className={styles.header}>
-      {/* <Image 
-        src="/images/logo.svg" 
+      <Image
+        src="/images/logo.svg"
         alt="planethurley.com logo"
-        width={600} 
+        width={600}
         height={100}
-      /> */}
+      />
       <ThemeChanger />
       {home ? (
         <>

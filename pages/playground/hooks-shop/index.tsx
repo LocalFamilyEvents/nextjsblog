@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 
 import Layout from "../../../components/layout";
 
-import { ShopContextProvider } from "./shop-context";
+import { ShopContextProvider } from "./context";
 import ShopFront from "./shop-front";
 
 const Index = () => (

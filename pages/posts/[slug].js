@@ -1,13 +1,15 @@
 import { useContext } from 'react';
 import Head from "next/head";
 import { gql, GraphQLClient } from "graphql-request";
+import { loader } from 'graphql.macro';
 
 import Date from "../../components/date";
 import Layout from "../../components/layout";
-
 import utilStyles from "../../styles/utils.module.css";
 import PostSchema from "../../components/structured-data/post";
 import { UserContext } from '../../components/userContext';
+
+const postsQuery = loader('./posts.query.graphql');
 
 export const getServerSideProps = async (pageContext) => {
   const { GRAPH_CMS_CONTENT_API: url, GRAPH_CMS_AUTH_TOKEN: token } =
@@ -20,28 +22,11 @@ export const getServerSideProps = async (pageContext) => {
     },
   });
 
-  const query = gql`
-    query ($postSlug: String!) {
-      post(where: { slug: $postSlug }) {
-        id
-        title
-        description
-        slug
-        excerpt
-        date
-        tags
-        thumbnail {
-          url
-        }
-      }
-    }
-  `;
-
   const variables = {
     postSlug,
   };
 
-  const data = await graphQLClient.request(query, variables);
+  const data = await graphQLClient.request(postsQuery, variables);
   
   return {
     props: {

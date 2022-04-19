@@ -1,0 +1,5 @@
+{
+  "projectId": "planethurley",
+  "baseUrl": "http://localhost:3000",
+  "videoUploadOnPasses": false
+}
